@@ -1,0 +1,111 @@
+body {
+  background: lightblue
+}
+
+#rainbowContainer {
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.cloud {
+  border-radius: 100%;
+  background: white;
+}
+
+#cloud {
+  position: absolute;
+  width: 200px;
+  height: 108px;
+  background: #f2f9fe;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  /* 	margin: 120px auto 20px; */
+  z-index: 2;
+}
+
+#cloud:after,
+#cloud:before {
+  content: '';
+  position: absolute;
+  background: #f2f9fe;
+  z-index: -1
+}
+
+#cloud:after {
+  width: 100px;
+  height: 100px;
+  top: -34px;
+  left: 29px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+}
+
+#cloud:before {
+  width: 80px;
+  height: 80px;
+  top: -41px;
+  right: 63px;
+  -webkit-border-radius: 200px;
+  -moz-border-radius: 200px;
+}
+
+.cloudLeft {
+  position:absolute;
+  left:-40px;
+  bottom:45px;
+}
+
+.cloudRight {
+  position: absolute;
+  bottom: 45px;
+  right: -40px;
+}
+
+#rainbow {
+  list-style: none;
+  padding: 15px;
+  border: none;
+  height: 90%;
+  margin-top: 65px;
+  box-sizing: border-box;
+  border-radius: 100%;
+}
+
+#rainbow div {
+  border: none;
+  position: relative;
+  border-radius: 90% 90% 0 0;
+  height: 90%;
+  padding: 5%;
+}
+
+.row {
+ background:blue;
+}
+
+.rowB {
+  background: red;
+}
+
+.rowC {
+  background: yellow;
+}
+
+.insideRow {
+  background: lightblue;
+  border: 0;
+  position: absolute;
+  display: relative;
+}
+
+#rainbow-fill {
+  height:75px;
+  background: lightblue;
+  position:absolute;
+  z-index:2;
+  width:100%;
+  bottom:45px;
+}
