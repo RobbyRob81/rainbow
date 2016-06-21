@@ -1,0 +1,28 @@
+{
+  "name": "rainbow",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RobbyRob81/rainbow.git"
+  },
+  "keywords": [],
+  "author": "Rob Rosario <robbysrosario@gmail.com> (http://robbyrob81.github.io/robrosario)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RobbyRob81/rainbow/issues"
+  },
+  "homepage": "https://github.com/RobbyRob81/rainbow#readme",
+  "dependencies": {
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0"
+  },
+  "devDependencies": {
+    "babel-loader": "^6.2.4",
+    "webpack-dev-server": "^1.14.1"
+  }
+}
