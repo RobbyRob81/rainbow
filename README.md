@@ -2,12 +2,12 @@
 
 #Challenge Version: `Master Branch`
 Completed in 3hrs.
-````
-npm i babel-loader babel-core babel-preset-es2015 babel-preset-react —save-dev
-````
 
-###Other Branches
-I'm exploring some ideas I've had during the ideation process.  I just can't get enough!
+###Dependancies
+The master branch does not have all the dependancies to run `Hot-Reloader, Babel`.  Please run the following commands:
+
+1. ```` npm i ````
+2. ````npm i babel-loader babel-core babel-preset-es2015 babel-preset-react —save-dev````
 
 
 #Production Ready Version:   `addSparkles Branch`
