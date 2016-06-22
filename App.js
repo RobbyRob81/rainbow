@@ -5,7 +5,12 @@ class App extends React.Component {
     super();
     this.state = {
       random: false,
-      active:['red','green','blue','yellow'],
+      sparkleStatus: [true,false],
+      active:[
+        '#EA8576',
+        '#40CCC0',
+        '#FFD480',
+        '#668B94'],
       colors:[
         '#EA8576',
         '#40CCC0',
@@ -19,9 +24,11 @@ class App extends React.Component {
     this.changeRainbowColor = this.changeRainbowColor.bind(this);
     this.rotateColors = this.rotateColors.bind(this);
     this.stopRotate = this.stopRotate.bind(this);
+    this.getSparkle = this.getSparkle.bind(this);
   }
   componentDidMount(){
     this.inc = setInterval(this.changeRainbowColor,500);
+    this.fade = setInterval(this.getSparkle, 500);
   }
   componentWillUnMount(){
     clearInterval(this.inc);
@@ -55,11 +62,16 @@ class App extends React.Component {
               color3 ={this.state.active[2]}
             />
             <div id="rainbow-fill"></div>
-             <Diamond/>
+             <Diamond sparkle={this.getSparkle}/>
              <Clouds />
           </div>
         </div>
       )
+  }
+  getSparkle(){
+    let active = Math.floor(Math.random() * ((1 - 0) - 0 + 1) + 0 );
+    console.log('sparkle', active === 0 ? false : true);
+    return active === 0 ? false : true;
   }
   rotateColors(){
       this.componentDidMount();
@@ -68,7 +80,7 @@ class App extends React.Component {
       this.componentWillUnMount();
   }
   getRandomNum(){
-    return Math.floor(Math.random() * (this.state.colors.length - 0 + 1) + 0 );
+    return Math.floor(Math.random() * ((this.state.colors.length - 1) - 0 + 1) + 0 );
   }
   changeRainbowColor(){
     let newColor = [];
@@ -101,10 +113,8 @@ class Clouds extends React.Component {
     return(
       <div>
         <div id='cloud' className="cloudLeft">
-
         </div>
         <div id='cloud' className="cloudRight">
-
         </div>
       </div>
     )
@@ -113,17 +123,18 @@ class Clouds extends React.Component {
 
 class Diamond extends React.Component{
   render(){
+    console.log(this.props.sparkle());
     return (
       <div>
         <div className='diamonds-left'>
-          <div className='diamond'></div>
-          <div className='diamond'></div>
-          <div className='diamond'></div>
+          <div className='diamond' disabled='false'></div>
+          <div className='diamond' disabled='false'></div>
+          <div className='diamond' disabled='false'></div>
         </div>
         <div className='diamonds-right'>
-          <div className='diamond'></div>
-          <div className='diamond'></div>
-          <div className='diamond'></div>
+          <div className='diamond' disabled='false'></div>
+          <div className='diamond' disabled='false'></div>
+          <div className='diamond' disabled='false'></div>
         </div>
       </div>
      )

@@ -35,21 +35,24 @@ body {
 }
 
 #cloud:after {
-  width: 100px;
-  height: 100px;
-  top: -34px;
-  left: 29px;
+  width: 114px;
+  height: 110px;
+  top: -28px;
+  left: 21px;
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
+  box-shadow: -2px -13px 18px rgba(64, 64, 107, 0.05);
+
 }
 
 #cloud:before {
-  width: 80px;
-  height: 80px;
-  top: -41px;
-  right: 63px;
+  width: 63px;
+  height: 68px;
+  top: -21px;
+  right: 48px;
   -webkit-border-radius: 200px;
   -moz-border-radius: 200px;
+  box-shadow: 1px 0px 33px rgba(64, 64, 107, 0.04);
 }
 
 .cloudLeft {
@@ -64,8 +67,7 @@ body {
   position: absolute;
   bottom: 45px;
   right: -40px;
-      animation: float 5s linear infinite;
-
+  animation: float 5s linear infinite;
 }
 
 #rainbow {
@@ -76,7 +78,7 @@ body {
   border-radius: 100%;
   animation: float 5s linear infinite;
   -webkit-clip-path: inset(0 0 21% 0);
-clip-path: inset(0 0 21% 0);
+  clip-path: inset(0 0 21% 0);
 }
 
 #rainbow div {
@@ -95,30 +97,49 @@ clip-path: inset(0 0 21% 0);
 }
 
 .diamonds-left{
-  width: 200px;
-    height: 200px;
-    position: absolute;
-    bottom: 43px;
-    left: 43px;
-    transform: rotate(0.9turn);
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  bottom: 120px;
+  left: -3px;
 }
 
 .diamonds-right{
-  width: 200px;
-    height: 200px;
-    position: absolute;
-    bottom: 36px;
-    right: -158px;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  bottom: 115px;
+  right: 0;
 }
 
-.diamonds-left div:nth-child(1), .diamonds-right div:nth-child(1){
-  left: 14%;
-  top: -5%;
+.diamonds-left div:nth-child(1){
+  left: 7%;
+  top: 32%;
 }
 
-.diamonds-left div:nth-child(2), .diamonds-right div:nth-child(2){
-  left: 10%;
-  top: -15%;
+.diamonds-left div:nth-child(2){
+  top: 52px;
+  left: 82px;
+}
+
+.diamonds-left div:nth-child(3){
+  top: 15px;
+  left: 48px;
+}
+
+.diamonds-right div:nth-child(1){
+  left: 7%;
+  top: 32%;
+}
+
+.diamonds-right div:nth-child(2){
+  top: 52px;
+  left: 82px;
+}
+
+.diamonds-right div:nth-child(3){
+  top: 15px;
+  left: 48px;
 }
 
 .diamond {
@@ -129,9 +150,11 @@ clip-path: inset(0 0 21% 0);
   width: 5px;
   height: 5px;
   position: absolute;
-  bottom: 214px;
   z-index: 2;
-  animation: pulse 2s linear infinite;
+}
+
+.sparkle {
+  animation: pulse 400ms linear infinite;
 }
 
 
@@ -153,25 +176,34 @@ ______________________________________________*/
 @-webkit-keyframes pulse {
   0% {
     -webkit-box-shadow: 0 0 0 0 rgba(254, 254, 254, 0.52);
+    opacity: 0;
   }
   70% {
       -webkit-box-shadow: 0 0 0 10px rgba(254, 254, 254, 0.52);
+      opacity: 0.7;
   }
   100% {
       -webkit-box-shadow: 0 0 0 0 rgba(254, 254, 254, 0.22);
+      opacity: 0;
   }
 }
 @keyframes pulse {
   0% {
     -moz-box-shadow: 0 0 0 0 rgba(254, 254, 254, 0.52);
     box-shadow: 0 0 0 0 rgba(254, 254, 254, 0.52);
+    opacity: 0;
+
   }
   70% {
-      -moz-box-shadow: 0 0 0 10px rgba(254, 254, 254, 0.52);
-      box-shadow: 0 0 0 10px rgba(254, 254, 254, 0.52);
+    -moz-box-shadow: 0 0 0 10px rgba(254, 254, 254, 0.52);
+    box-shadow: 0 0 0 10px rgba(254, 254, 254, 0.52);
+    opacity: 0.7;
+
   }
   100% {
-      -moz-box-shadow: 0 0 0 0 rgba(254, 254, 254, 0.52);
-      box-shadow: 0 0 0 0 rgba(254, 254, 254, 0.22);
+    -moz-box-shadow: 0 0 0 0 rgba(254, 254, 254, 0.52);
+    box-shadow: 0 0 0 0 rgba(254, 254, 254, 0.22);
+    opacity: 0;
+
   }
 }
