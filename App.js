@@ -24,9 +24,12 @@ class App extends React.Component {
     this.stopRotate = this.stopRotate.bind(this);
     this.getSparkle = this.getSparkle.bind(this);
   }
-  componentDidMount(){
-    this.inc = setInterval(this.changeRainbowColor,500);
+  componentDidMount(req){
+    console.log(req);
     this.fade = setInterval(this.getSparkle, 500);
+    if (req === true) {
+      this.inc = setInterval(this.changeRainbowColor,500);
+    }
   }
   componentWillUnMount(){
     clearInterval(this.inc);
@@ -69,7 +72,7 @@ class App extends React.Component {
     return active === 0 ? false : true;
   }
   rotateColors(){
-      this.componentDidMount();
+      this.componentDidMount(true);
   }
   stopRotate(){
       this.componentWillUnMount();
