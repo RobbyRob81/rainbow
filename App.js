@@ -11,20 +11,11 @@ class App extends React.Component {
         '#40CCC0',
         '#FFD480',
         '#668B94'],
-      colors:[
-        '#EA8576',
-        '#40CCC0',
-        '#FFD480',
-        '#668B94',
-        '#83B8B7',
-        '#E0DFE4',
-        '#ECD794'
-      ],
       clrs:{
         blue:['#75C0FA','#3EA8F9','#0A91F8','#75C0FA','#4F4FFA'],
         red:['#F56151','#DD948C','#AA726C','#DD5849','#DD5849'],
-        green:['#391951','#662D91','#0C0511','#6F319E','#542577'],
-        yellow:['#FCEE6D','#EEDB29','#C9B600','#FFF9BC','#FFF9BC'],
+        green:['#00E44D','#00F252','#00C743','#00AE3B','#0DD04F'],
+        yellow:['#FFEF00','#FFF779','#FFDF00','#FFEF00','#FFD300'],
       }
     };
     this.getRandomNum = this.getRandomNum.bind(this);
@@ -53,13 +44,13 @@ class App extends React.Component {
          onClick={this.rotateColors}
          style={btnStyle}
          >
-          On
+          Auto On
          </button>
          <button
           onClick={this.stopRotate}
           style={btnStyle}
           >
-           Off
+           Auto Off
           </button>
         <div id='rainbowContainer'>
             <RainBow
@@ -89,12 +80,12 @@ class App extends React.Component {
   }
   changeRainbowColor(){
     let newColor = [];
-    for(let i = 0; i < 3; i++){
+    for(let i = 0; i < 4; i++){
       if(i === 0){newColor.push(this.state.clrs.blue[this.getRandomNum(3)])}
-      if(i === 1){newColor.push(this.state.clrs.red[this.getRandomNum(2)])}
-      if(i === 2){newColor.push(this.state.clrs.yellow[this.getRandomNum(3)])}
-      // if(i === num){newColor.push(this.state.clrs.red[3])}
-      // newColor.push(this.state.colors[this.getRandomNum(this.state.colors.length)]);
+      if(i === 1){newColor.push(this.state.clrs.red[this.getRandomNum(3)])}
+      if(i === 2){newColor.push(this.state.clrs.green[this.getRandomNum(3)])}
+      if(i === 3){newColor.push(this.state.clrs.yellow[this.getRandomNum(3)])}
+
     }
     console.log(newColor);
     this.setState({active:newColor});
@@ -109,7 +100,9 @@ class RainBow extends React.Component {
           <div className="row" style={{background:this.props.activeColors[0]}}>
            <div className="rowB " style={{background:this.props.activeColors[1]}}>
              <div className="rowC " style={{background:this.props.activeColors[2]}}>
+              <div className="rowC " style={{background:this.props.activeColors[3]}}>
                <div className="insideRow"></div>
+               </div>
              </div>
            </div>
           </div>
@@ -137,14 +130,14 @@ class Diamond extends React.Component{
     return (
       <div>
         <div className='diamonds-left'>
-          <div className='diamond' disabled='false'></div>
-          <div className='diamond' disabled='false'></div>
-          <div className='diamond' disabled='false'></div>
+          <div className='diamond shine'></div>
+          <div className='diamond shine'></div>
+          <div className='diamond shine'></div>
         </div>
         <div className='diamonds-right'>
-          <div className='diamond' disabled='false'></div>
-          <div className='diamond' disabled='false'></div>
-          <div className='diamond' disabled='false'></div>
+          <div className='diamond shine'></div>
+          <div className='diamond shine'></div>
+          <div className='diamond shine'></div>
         </div>
       </div>
      )
