@@ -1,5 +1,6 @@
 body {
-  background: #f6f5ff;
+  /*background: #f6f5ff;*/
+  background: rgba(241, 241, 254, 0.1);
 }
 
 #rainbowContainer {

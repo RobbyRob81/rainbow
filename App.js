@@ -146,7 +146,7 @@ class Diamond extends React.Component{
  }
 
 let btnStyle = {
-  border:'1px solid #668b94',
+  border:'2px solid rgba(102, 139, 148, 0.29)',
   color:'#668b94',
   padding: '1rem',
   background:'none',
