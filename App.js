@@ -99,11 +99,10 @@ class RainBow extends React.Component {
       console.log(this.props.activeColors);
       return(
         <div id="rainbow">
-          <div className="row" style={{background:this.props.activeColors[0]}}>
-           <div className="rowB " style={{background:this.props.activeColors[1]}}>
-             <div className="rowC " style={{background:this.props.activeColors[2]}}>
-              <div className="rowC " style={{background:this.props.activeColors[3]}}>
-               <div className="insideRow"></div>
+          <div className="row" style={{borderColor:this.props.activeColors[0]}}>
+           <div className="rowB " style={{borderColor:this.props.activeColors[1]}}>
+             <div className="rowC " style={{borderColor:this.props.activeColors[2]}}>
+              <div className="rowC " style={{borderColor:this.props.activeColors[3]}}>
                </div>
              </div>
            </div>
