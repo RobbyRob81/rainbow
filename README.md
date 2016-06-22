@@ -12,6 +12,6 @@ I'm exploring some ideas I've had during the ideation process.  I just can't get
 
 #The awesome Version => addSparkles Branch
 
-My goal was to explore creating a Illustrator "look" and to find better ways to manipulate the UI using CSS3 clip() and find a more natural feel for the app animations.
+My goals were to explore creating a more vector/Illustrator UI, explore CSS3 `clip()` and optimize animations to look and feel more natural.
 
 This was so fun, thanks you!
