@@ -26,7 +26,6 @@ class App extends React.Component {
   }
   componentDidMount(req){
     console.log(req);
-    this.fade = setInterval(this.getSparkle, 500);
     if (req === true) {
       this.inc = setInterval(this.changeRainbowColor,500);
     }
