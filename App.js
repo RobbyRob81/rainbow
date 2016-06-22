@@ -6,148 +6,14 @@ class App extends React.Component {
     this.state = {
       random: false,
       active:['red','green','blue','yellow'],
-      colors: [
-      'Black',
-      'Navy',
-      'DarkBlue',
-      'MediumBlue',
-      'Blue',
-      'DarkGreen',
-      'Green',
-      'Teal',
-      'DarkCyan',
-      'DeepSkyBlue',
-      'DarkTurquoise',
-      'MediumSpringGreen',
-      'Lime',
-      'SpringGreen',
-      'Aqua',
-      'Cyan',
-      'MidnightBlue',
-      'DodgerBlue',
-      'LightSeaGreen',
-      'ForestGreen',
-      'SeaGreen',
-      'DarkSlateGray',
-      'LimeGreen',
-      'MediumSeaGreen',
-      'Turquoise',
-      'RoyalBlue',
-      'SteelBlue',
-      'DarkSlateBlue',
-      'MediumTurquoise',
-      'Indigo',
-      'DarkOliveGreen',
-      'CadetBlue',
-      'CornflowerBlue',
-      'RebeccaPurple',
-      'MediumAquaMarine',
-      'DimGray',
-      'SlateBlue',
-      'OliveDrab',
-      'SlateGray',
-      'LightSlateGray',
-      'MediumSlateBlue',
-      'LawnGreen',
-      'Chartreuse',
-      'Aquamarine',
-      'Maroon',
-      'Purple',
-      'Olive',
-      'Gray',
-      'SkyBlue',
-      'LightSkyBlue',
-      'BlueViolet',
-      'DarkRed',
-      'DarkMagenta',
-      'SaddleBrown',
-      'DarkSeaGreen',
-      'LightGreen',
-      'MediumPurple',
-      'DarkViolet',
-      'PaleGreen',
-      'DarkOrchid',
-      'YellowGreen',
-      'Sienna',
-      'Brown',
-      'DarkGray',
-      'LightBlue',
-      'GreenYellow',
-      'PaleTurquoise',
-      'LightSteelBlue',
-      'PowderBlue',
-      'FireBrick',
-      'DarkGoldenRod',
-      'MediumOrchid',
-      'RosyBrown',
-      'DarkKhaki',
-      'Silver',
-      'MediumVioletRed',
-      'IndianRed',
-      'Peru',
-      'Chocolate',
-      'Tan',
-      'LightGray',
-      'Thistle',
-      'Orchid',
-      'GoldenRod',
-      'PaleVioletRed',
-      'Crimson',
-      'Gainsboro',
-      'Plum',
-      'BurlyWood',
-      'LightCyan',
-      'Lavender',
-      'DarkSalmon',
-      'Violet',
-      'PaleGoldenRod',
-      'LightCoral',
-      'Khaki',
-      'AliceBlue',
-      'HoneyDew',
-      'Azure',
-      'SandyBrown',
-      'Wheat',
-      'Beige',
-      'WhiteSmoke',
-      'MintCream',
-      'GhostWhite',
-      'Salmon',
-      'AntiqueWhite',
-      'Linen',
-      'LightGoldenRodYellow',
-      'OldLace',
-      'Red',
-      'Fuchsia',
-      'Magenta',
-      'DeepPink',
-      'OrangeRed',
-      'Tomato',
-      'HotPink',
-      'Coral',
-      'DarkOrange',
-      'LightSalmon',
-      'Orange',
-      'LightPink',
-      'Pink',
-      'Gold',
-      'PeachPuff',
-      'NavajoWhite',
-      'Moccasin',
-      'Bisque',
-      'MistyRose',
-      'BlanchedAlmond',
-      'PapayaWhip',
-      'LavenderBlush',
-      'SeaShell',
-      'Cornsilk',
-      'LemonChiffon',
-      'FloralWhite',
-      'Snow',
-      'Yellow',
-      'LightYellow',
-      'Ivory',
-      'White',
+      colors:[
+        '#EA8576',
+        '#40CCC0',
+        '#FFD480',
+        '#668B94',
+        '#83B8B7',
+        '#E0DFE4',
+        '#ECD794'
     ]};
     this.getRandomNum = this.getRandomNum.bind(this);
     this.changeRainbowColor = this.changeRainbowColor.bind(this);
@@ -173,13 +39,13 @@ class App extends React.Component {
          onClick={this.rotateColors}
          style={btnStyle}
          >
-          Sprinkles On!
+          On
          </button>
          <button
           onClick={this.stopRotate}
           style={btnStyle}
           >
-           Sprinkles Off
+           Off
           </button>
         <div id='rainbowContainer'>
             <RainBow
@@ -189,6 +55,7 @@ class App extends React.Component {
               color3 ={this.state.active[2]}
             />
             <div id="rainbow-fill"></div>
+             <Diamond/>
              <Clouds />
           </div>
         </div>
@@ -233,19 +100,44 @@ class Clouds extends React.Component {
   render(){
     return(
       <div>
-        <div id='cloud' className="cloudLeft"></div>
-        <div id='cloud' className="cloudRight"></div>
+        <div id='cloud' className="cloudLeft">
+
+        </div>
+        <div id='cloud' className="cloudRight">
+
+        </div>
       </div>
     )
   }
 }
 
+class Diamond extends React.Component{
+  render(){
+    return (
+      <div>
+        <div className='diamonds-left'>
+          <div className='diamond'></div>
+          <div className='diamond'></div>
+          <div className='diamond'></div>
+        </div>
+        <div className='diamonds-right'>
+          <div className='diamond'></div>
+          <div className='diamond'></div>
+          <div className='diamond'></div>
+        </div>
+      </div>
+     )
+  }
+ }
+
 let btnStyle = {
-  border:'1px solid #5c91a2',
-  color:'white',
+  border:'1px solid #668b94',
+  color:'#668b94',
   padding: '1rem',
   background:'none',
-  fontSize:'1rem'
+  fontSize:'1rem',
+  margin:3,
+  borderRadius:4,
 };
 
 export default App;
