@@ -89,7 +89,7 @@ body {
   height: 93%;
   padding: 0;
   border: 16px solid #fff;
-  transition: background-color 0.25s ease-in;
+  transition: border-color 0.5s ease;
 }
 
 .insideRow {
