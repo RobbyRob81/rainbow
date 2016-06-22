@@ -19,7 +19,14 @@ class App extends React.Component {
         '#83B8B7',
         '#E0DFE4',
         '#ECD794'
-    ]};
+      ],
+      clrs:{
+        blue:['#75C0FA','#3EA8F9','#0A91F8','#75C0FA','#4F4FFA'],
+        red:['#F56151','#DD948C','#AA726C','#DD5849','#DD5849'],
+        green:['#391951','#662D91','#0C0511','#6F319E','#542577'],
+        yellow:['#FCEE6D','#EEDB29','#C9B600','#FFF9BC','#FFF9BC'],
+      }
+    };
     this.getRandomNum = this.getRandomNum.bind(this);
     this.changeRainbowColor = this.changeRainbowColor.bind(this);
     this.rotateColors = this.rotateColors.bind(this);
@@ -57,9 +64,6 @@ class App extends React.Component {
         <div id='rainbowContainer'>
             <RainBow
               activeColors={this.state.active}
-              color1 ={this.state.active[0]}
-              color2 ={this.state.active[1]}
-              color3 ={this.state.active[2]}
             />
             <div id="rainbow-fill"></div>
              <Diamond sparkle={this.getSparkle}/>
@@ -79,13 +83,18 @@ class App extends React.Component {
   stopRotate(){
       this.componentWillUnMount();
   }
-  getRandomNum(){
-    return Math.floor(Math.random() * ((this.state.colors.length - 1) - 0 + 1) + 0 );
+  getRandomNum(max){
+    console.log(Math.floor(Math.random() * ((max - 1) - 0 + 1) + 0 ));
+    return Math.floor(Math.random() * ((max - 1) - 0 + 1) + 0 );
   }
   changeRainbowColor(){
     let newColor = [];
-    for(var i = 0; i < this.state.active.length; i++){
-      newColor.push(this.state.colors[this.getRandomNum()]);
+    for(let i = 0; i < 3; i++){
+      if(i === 0){newColor.push(this.state.clrs.blue[this.getRandomNum(3)])}
+      if(i === 1){newColor.push(this.state.clrs.red[this.getRandomNum(2)])}
+      if(i === 2){newColor.push(this.state.clrs.yellow[this.getRandomNum(3)])}
+      // if(i === num){newColor.push(this.state.clrs.red[3])}
+      // newColor.push(this.state.colors[this.getRandomNum(this.state.colors.length)]);
     }
     console.log(newColor);
     this.setState({active:newColor});
@@ -94,11 +103,12 @@ class App extends React.Component {
 
 class RainBow extends React.Component {
     render(){
+      console.log(this.props.activeColors);
       return(
         <div id="rainbow">
-          <div className="row" style={{background:this.props.color1}}>
-           <div className="rowB " style={{background:this.props.color2}}>
-             <div className="rowC " style={{background:this.props.color3}}>
+          <div className="row" style={{background:this.props.activeColors[0]}}>
+           <div className="rowB " style={{background:this.props.activeColors[1]}}>
+             <div className="rowC " style={{background:this.props.activeColors[2]}}>
                <div className="insideRow"></div>
              </div>
            </div>
