@@ -61,6 +61,7 @@ class App extends React.Component {
             <div id="rainbow-fill"></div>
              <Diamond sparkle={this.getSparkle}/>
              <Clouds />
+             <Shadows />
           </div>
         </div>
       )
@@ -87,7 +88,6 @@ class App extends React.Component {
       if(i === 1){newColor.push(this.state.clrs.red[this.getRandomNum(3)])}
       if(i === 2){newColor.push(this.state.clrs.green[this.getRandomNum(3)])}
       if(i === 3){newColor.push(this.state.clrs.yellow[this.getRandomNum(3)])}
-
     }
     console.log(newColor);
     this.setState({active:newColor});
@@ -110,6 +110,17 @@ class RainBow extends React.Component {
         </div>
       )
     }
+}
+
+class Shadows extends React.Component {
+ render(){
+   return(
+     <div className='shadows'>
+       <div className='shadowLeft'></div>
+       <div className='shadowRight'></div>
+     </div>
+   )
+ }
 }
 
 class Clouds extends React.Component {

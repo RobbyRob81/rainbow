@@ -1,6 +1,7 @@
 body {
   /*background: #f6f5ff;*/
-  background: rgba(241, 241, 254, 0.1);
+  /*background: rgba(241, 241, 254, 0.1);*/
+  background: #E7E7E7;
 }
 
 #rainbowContainer {
@@ -70,6 +71,39 @@ body {
   right: -40px;
   animation: float 4s linear infinite;
 }
+
+.shadows div {
+  width:100px;
+  height: 100px;
+  background: black;
+  position: absolute;
+  border-radius: 80%;
+  box-shadow: 4px 12px 1px 10px rgba(0, 0, 0, 0.16);
+  -webkit-transform: rotate(10%);
+  -webkit-transform: skew(43deg,34deg);
+  -ms-transform: rotate(20deg);
+  -webkit-transform: rotate(20deg);
+  transform: rotate(-41deg) skew(45deg, 35deg);
+  opacity: 0.022;
+}
+
+.shadowRight {
+  right: 0;
+}
+
+/*.shadowRight:after {
+  content: '';
+  position: absolute;
+  background: red;
+  width: 200px;
+  height: 100px;
+  opacity: 0.9;
+  -webkit-transform: rotate(10%);
+  -webkit-transform: skew(43deg,34deg);
+  -ms-transform: rotate(20deg);
+  -webkit-transform: rotate(20deg);
+  transform: rotate(-41deg) skew(45deg, 35deg);
+}*/
 
 #rainbow {
   list-style: none;
