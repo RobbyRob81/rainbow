@@ -60,15 +60,15 @@ body {
   position:absolute;
   left:-40px;
   bottom:45px;
-      animation: float 5s linear infinite;
-
+  animation: float 3s linear infinite;
+  animation-delay: 1.5s;
 }
 
 .cloudRight {
   position: absolute;
   bottom: 45px;
   right: -40px;
-  animation: float 5s linear infinite;
+  animation: float 4s linear infinite;
 }
 
 #rainbow {
@@ -80,6 +80,8 @@ body {
   animation: float 5s linear infinite;
   -webkit-clip-path: inset(0 0 23% 0);
   clip-path: inset(0 0 23% 0);
+  animation: expand 3s linear infinite;
+  animation-delay: 1s;
 }
 
 #rainbow div {
@@ -111,7 +113,7 @@ body {
   width: 100px;
   height: 100px;
   position: absolute;
-  bottom: 115px;
+  bottom: 135px;
   right: 0;
 }
 
@@ -119,15 +121,15 @@ body {
   left: 7%;
   top: 32%;
   -webkit-animation-delay: 2s; /* Safari */
-    animation-delay: 2s;
-    animation: shine 400ms radial infinite;
+  animation-delay: 2s;
+  animation: shine 400ms radial infinite;
 }
 
 .diamonds-left div:nth-child(2){
   top: 52px;
   left: 82px;
   -webkit-animation-delay: 1s; /* Safari */
-    animation-delay: 1s;
+  animation-delay: 1s;
 }
 
 .diamonds-left div:nth-child(3){
@@ -151,40 +153,76 @@ body {
 .diamonds-right div:nth-child(3){
   top: 15px;
   left: 48px;
-    -webkit-animation-delay: 4s; /* Safari */
-      animation-delay: 4s;
+  -webkit-animation-delay: 1.1s; /* Safari */
+  animation-delay: 1.1s;
 }
 
 .diamond {
   transform: rotate(45deg);
   transform-origin: 0 100%;
-  background: offwhite;
   background:white;
-  width: 5px;
-  height: 5px;
+  width: 15px;
+  height: 15px;
   position: absolute;
+  border: 1px solid #e4e0e0;
+  box-shadow: 0px 0px 0px 3px rgba(223, 247, 156, 0.37);
   z-index: 2;
+  -webkit-filter: contrast(200%) brightness(150%) blur(8%);
+  filter: contrast(200%) brightness(150%) blur(8%);
 }
 
-/*.sparkle {
-  animation: shine 400ms radial infinite;
-}*/
-
+.diamond:after {
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+  background: blue;
+  background:white;
+  width: 5px;
+  height: 15px;
+  position: absolute;
+  box-shadow: 1px 0px 33px rgba(64, 64, 107, 0.04);
+  z-index: 2;
+  -webkit-filter: contrast(200%) brightness(150%) blur(8%);
+  filter: contrast(200%) brightness(150%) blur(8%);
+}
 
 /* Animations
 ______________________________________________*/
 
 @-webkit-keyframes float{
-    from {-webkit-transform:translate(0, 0px);}
-    65% {-webkit-transform:translate(0, 35px);}
-    to {-webkit-transform: translate(0, 0px);    }
+  from {-webkit-transform:translate(0, 0px);}
+  65% {-webkit-transform:translate(0, 15px);}
+  to {-webkit-transform: translate(0, 0px);    }
 }
 
 @-moz-keyframes float{
-    from {-moz-transform:translate(0, 0px);}
-    65% {-moz-transform:translate(0, 35px);}
-    to {-moz-transform: translate(0, 0px);}
+  from {-moz-transform:translate(0, 0px);}
+  65% {-moz-transform:translate(0, 15px);}
+  to {-moz-transform: translate(0, 0px);}
 }
+
+
+@keyframes expand {
+  0% {
+    transform: scale(1, 1);
+    -webkit-filter: brightness(100%); /* Chrome, Safari, Opera */
+    filter: brightness(100%);
+  }
+  41% {
+    transform: scale(1.01, 1.01);
+    -webkit-filter: brightness(110%); /* Chrome, Safari, Opera */
+    filter: brightness(110%);
+  }
+  100% {
+    transform: scale(1, 1);
+    -webkit-filter: brightness(100%); /* Chrome, Safari, Opera */
+    filter: brightness(100%);
+  }
+}
+.expand {
+  animation: expand 2.4s infinite ease-in-out normal both;
+	-webkit-backface-visibility: hidden;
+}
+
 
 @keyframes shine {
   25% {

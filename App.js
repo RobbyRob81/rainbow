@@ -27,7 +27,7 @@ class App extends React.Component {
   componentDidMount(req){
     console.log(req);
     if (req === true) {
-      this.inc = setInterval(this.changeRainbowColor,500);
+      this.inc = setInterval(this.changeRainbowColor,1000);
     }
   }
   componentWillUnMount(){
