@@ -112,6 +112,21 @@ class RainBow extends React.Component {
     }
 }
 
+const SunBurst = () => <div className="sunburst">
+                        <div className="outer">
+                          <b></b>
+                          <b></b>
+                          <b></b>
+                          <b></b>
+                          <b></b>
+                          <b></b>
+                          <b></b>
+                          <b></b>
+                          <b></b>
+                          <b></b>
+                        </div>
+                       </div>
+
 class Shadows extends React.Component {
  render(){
    return(

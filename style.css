@@ -219,6 +219,62 @@ body {
   filter: contrast(200%) brightness(150%) blur(8%);
 }
 
+.sunburst b {
+display: block;
+width: 0;
+height: 0;
+border-width: 90px 1000px;
+margin: -180px 0 0 0;
+border-color: transparent black;
+border-style: solid;
+}
+
+.sunburst b:nth-child(1) {
+-webkit-transform:rotate(20deg);
+-moz-transform:rotate(20deg);
+}
+
+.sunburst b:nth-child(2) {
+-webkit-transform:rotate(40deg);
+-moz-transform:rotate(40deg);
+}
+
+.sunburst b:nth-child(3) {
+-webkit-transform:rotate(60deg);
+-moz-transform:rotate(60deg);
+}
+
+.sunburst b:nth-child(4) {
+-webkit-transform:rotate(80deg);
+-moz-transform:rotate(80deg);
+}
+
+.sunburst b:nth-child(5) {
+-webkit-transform:rotate(100deg);
+-moz-transform:rotate(100deg);
+}
+
+.sunburst b:nth-child(6) {
+-webkit-transform:rotate(120deg);
+-moz-transform:rotate(120deg);
+}
+
+.sunburst b:nth-child(7) {
+-webkit-transform:rotate(140deg);
+-moz-transform:rotate(140deg);
+}
+
+.sunburst b:nth-child(8) {
+-webkit-transform:rotate(160deg);
+-moz-transform:rotate(160deg);
+}
+
+.sunburst b:nth-child(9) {
+-webkit-transform:rotate(180deg);
+-moz-transform:rotate(180deg);
+}
+
+
 /* Animations
 ______________________________________________*/
 
@@ -257,12 +313,18 @@ ______________________________________________*/
 	-webkit-backface-visibility: hidden;
 }
 
-
 @keyframes shine {
+  0% {
+    -ms-transform: scale(0, 0); /* IE 9 */
+    -webkit-transform: scale(0, 0); /* Safari */
+    transform: scale(0, 0);
+    background: #ffe474;
+    opacity: 0;
+  }
   25% {
-    -ms-transform: scale(0, 3); /* IE 9 */
-    -webkit-transform: scale(0, 3); /* Safari */
-    transform: scale(0, 3);
+    -ms-transform: scale(0, 2); /* IE 9 */
+    -webkit-transform: scale(0, 2); /* Safari */
+    transform: scale(0, 4);
     background: #ffe474;
     opacity: 0.3;
   }
@@ -275,10 +337,11 @@ ______________________________________________*/
   75% {
     -ms-transform: scale(0, 4); /* IE 9 */
     -webkit-transform: scale(0, 4); /* Safari */
-    transform: scale(0, 4);
+    transform: scale(0, 3);
     opacity: 0;
   }
 }
+
 .shine {
   animation: shine 1.4s .7s infinite ease-in-out normal both;
 	-webkit-backface-visibility: hidden;
