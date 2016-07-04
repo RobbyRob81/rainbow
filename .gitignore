@@ -1,3 +1,5 @@
 #Github ignore config
 
 node_modules/
+npm-debug.log
+tree_out
