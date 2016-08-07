@@ -27,6 +27,7 @@ class App extends React.Component {
   }
   render() {
     const {btnStyle} = Styles;
+    const clouds = this.createXClouds();
     return (
       <div>
         <Button
@@ -50,18 +51,70 @@ class App extends React.Component {
                <div className="shadows">
                <div className='shadowLeft'></div>
              </div>
-             <Cloud className="cloudRight" style={{zIndex: "-1", top:276, opacity:"0.98",left:-11}}/>
-             <Cloud className="cloudRight" style={{zIndex: "-1", top:263, opacity:"0.98",left:-79}}/>
+             <Cloud
+                className="cloudRight"
+                style={{
+                  zIndex: "-1",
+                  top:276,
+                  opacity:"0.98",
+                  left:-11}}/>
+             <Cloud
+               className="cloudRight"
+               style={{
+                 zIndex: "-1",
+                 top:263,
+                 opacity:"0.98",
+                 left:-79}}
+             />
 
              <Cloud className="cloudRight" />
                <div className="shadows">
                <div className='shadowRight'></div>
              </div>
-             <Cloud className="cloudRight" style={{zIndex: "-1", top:276, opacity:"0.98",right:-11}}/>
-             <Cloud className="cloudRight" style={{zIndex: "-1", top:263, opacity:"0.98",right:-79}}/>
+             <Cloud
+               className="cloudRight"
+               style={{zIndex: "-1",
+                 top:276,
+                 opacity:"0.98",
+                 right:-11}}
+             />
+             <Cloud
+               className="cloudRight"
+               style={{
+                 zIndex: "-1",
+                 top:263,
+                 opacity:"0.98",
+                 right:-79}}
+             />
           </div>
+            {clouds}
         </div>
       )
+  }
+  createXClouds(){
+    const qty = Math.floor(Math.random() * ((25 - 4) + 4));
+    const currWidth = window.screen.width;
+    const currHeight = window.screen.height;
+    let positionX = Math.floor(Math.random() * (400 - 0) + 0);
+    let positionY = Math.floor(Math.random() * (400 - 0) + 0);
+    const clouds = [];
+    const track = 0;
+
+    for(var i = 0; i < qty; i++){
+      clouds.push(
+        <Cloud
+           className="cloudRight"
+           style={{
+             zIndex: "-1",
+             top:`${ Math.floor(Math.random() * (`${1200}` - 0) + 0)}`,
+             opacity:"0.1",
+             left:`${ Math.floor(Math.random() * (1200 - 0) + 0)}`
+           }}
+        />
+      );
+    }
+    console.table(clouds);
+    return clouds;
   }
   getSparkle(){
     const active = Math.floor(Math.random() * ((1 - 0) - 0 + 1) + 0 );
