@@ -26,7 +26,7 @@ class App extends React.Component {
     this.inc = '';
   }
   render() {
-    console.log(this.state);
+    const {btnStyle} = Styles;
     return (
       <div>
         <Button
@@ -49,19 +49,22 @@ class App extends React.Component {
              <Cloud className="cloudLeft" />
                <div className="shadows">
                <div className='shadowLeft'></div>
-               </div>
+             </div>
+             <Cloud className="cloudRight" style={{zIndex: "-1", top:276, opacity:"0.98",left:-11}}/>
+             <Cloud className="cloudRight" style={{zIndex: "-1", top:263, opacity:"0.98",left:-79}}/>
 
              <Cloud className="cloudRight" />
-             <div className="shadows">
-             <div className='shadowRight'></div>
+               <div className="shadows">
+               <div className='shadowRight'></div>
              </div>
-
+             <Cloud className="cloudRight" style={{zIndex: "-1", top:276, opacity:"0.98",right:-11}}/>
+             <Cloud className="cloudRight" style={{zIndex: "-1", top:263, opacity:"0.98",right:-79}}/>
           </div>
         </div>
       )
   }
   getSparkle(){
-    let active = Math.floor(Math.random() * ((1 - 0) - 0 + 1) + 0 );
+    const active = Math.floor(Math.random() * ((1 - 0) - 0 + 1) + 0 );
     return active === 0 ? false : true;
   }
   rotateColors(){
@@ -71,7 +74,6 @@ class App extends React.Component {
   }
   stopRotate(){
     clearInterval(this.inc);
-      // this.componentWillUnMount();
   }
   getRandomNum(max){
     return Math.floor(Math.random() * ((max - 1) - 0 + 1) + 0 );
@@ -125,15 +127,5 @@ class Diamond extends React.Component{
      )
   }
  }
-
-let btnStyle = {
-  border:'2px solid rgba(102, 139, 148, 0.29)',
-  color:'#668b94',
-  padding: '1rem',
-  background:'none',
-  fontSize:'1rem',
-  margin:3,
-  borderRadius:4,
-};
 
 export default App;
