@@ -26,7 +26,7 @@ class App extends React.Component {
     this.inc = '';
   }
   render() {
-    console.log(this.inc);
+    console.log(this.state);
     return (
       <div>
         <Button
@@ -37,12 +37,7 @@ class App extends React.Component {
         <Button
           onClick={this.rotateColors}
           style={btnStyle}
-          text="Auto On"
-        />
-        <Button
-          onClick={this.stopRotate}
-          style={btnStyle}
-          text="Auto Off"
+          text={this.state.random === false ? "Auto on" : "Auto off"}
         />
         <div id='rainbowContainer'>
             <RainBow
@@ -71,6 +66,7 @@ class App extends React.Component {
   }
   rotateColors(){
     const {random} = this.state;
+    this.setState({random: !random});
       return random === false ? this.inc = setInterval(this.changeRainbowColor,100) : this.stopRotate();
   }
   stopRotate(){
