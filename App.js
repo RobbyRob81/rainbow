@@ -87,7 +87,6 @@ class App extends React.Component {
                  right:-79}}
              />
           </div>
-            {clouds}
         </div>
       )
   }
