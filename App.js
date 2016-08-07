@@ -1,4 +1,7 @@
 import React from 'react';
+import Cloud from './Cloud.js';
+import Button from "./Button.js";
+import Styles from "./Styles.js";
 
 class App extends React.Component {
   constructor(){
@@ -7,16 +10,10 @@ class App extends React.Component {
       random: false,
       sparkleStatus: [true,false],
       active:[
-        '#EA8576',
-        '#40CCC0',
-        '#FFD480',
-        '#668B94'],
-      clrs:{
-        blue:['#75C0FA','#3EA8F9','#0A91F8','#75C0FA','#4F4FFA'],
-        red:['#F56151','#DD948C','#AA726C','#DD5849','#DD5849'],
-        green:['#00E44D','#00F252','#00C743','#00AE3B','#0DD04F'],
-        yellow:['#FFEF00','#FFF779','#FFDF00','#FFEF00','#FFD300'],
-      }
+        '#3EA8F9',
+        '#DD948C',
+        '#00F252',
+        '#FFF779']
     };
     this.getRandomNum = this.getRandomNum.bind(this);
     this.changeRainbowColor = this.changeRainbowColor.bind(this);
@@ -24,85 +21,87 @@ class App extends React.Component {
     this.stopRotate = this.stopRotate.bind(this);
     this.getSparkle = this.getSparkle.bind(this);
   }
-  componentDidMount(req){
-    console.log(req);
-    if (req === true) {
-      this.inc = setInterval(this.changeRainbowColor,1000);
-    }
-  }
   componentWillUnMount(){
     clearInterval(this.inc);
+    this.inc = '';
   }
   render() {
+    console.log(this.inc);
     return (
       <div>
-        <button
-          onClick={this.changeRainbowColor}
+        <Button
           style={btnStyle}
-        >
-         Change Color
-        </button>
-        <button
-         onClick={this.rotateColors}
-         style={btnStyle}
-         >
-          Auto On
-         </button>
-         <button
+          onClick={this.changeRainbowColor}
+          text="Change Color"
+        />
+        <Button
+          onClick={this.rotateColors}
+          style={btnStyle}
+          text="Auto On"
+        />
+        <Button
           onClick={this.stopRotate}
           style={btnStyle}
-          >
-           Auto Off
-          </button>
+          text="Auto Off"
+        />
         <div id='rainbowContainer'>
             <RainBow
               activeColors={this.state.active}
             />
             <div id="rainbow-fill"></div>
              <Diamond sparkle={this.getSparkle}/>
-             <Clouds />
-             <Shadows />
+
+             <Cloud className="cloudLeft" />
+               <div className="shadows">
+               <div className='shadowLeft'></div>
+               </div>
+
+             <Cloud className="cloudRight" />
+             <div className="shadows">
+             <div className='shadowRight'></div>
+             </div>
+
           </div>
         </div>
       )
   }
   getSparkle(){
     let active = Math.floor(Math.random() * ((1 - 0) - 0 + 1) + 0 );
-    console.log('sparkle', active === 0 ? false : true);
     return active === 0 ? false : true;
   }
   rotateColors(){
-      this.componentDidMount(true);
+    const {random} = this.state;
+      return random === false ? this.inc = setInterval(this.changeRainbowColor,100) : this.stopRotate();
   }
   stopRotate(){
-      this.componentWillUnMount();
+    clearInterval(this.inc);
+      // this.componentWillUnMount();
   }
   getRandomNum(max){
-    console.log(Math.floor(Math.random() * ((max - 1) - 0 + 1) + 0 ));
     return Math.floor(Math.random() * ((max - 1) - 0 + 1) + 0 );
   }
   changeRainbowColor(){
-    let newColor = [];
+    const {blue, red, green, yellow} = Styles.clrs;
+    const newColor = [];
     for(let i = 0; i < 4; i++){
-      if(i === 0){newColor.push(this.state.clrs.blue[this.getRandomNum(3)])}
-      if(i === 1){newColor.push(this.state.clrs.red[this.getRandomNum(3)])}
-      if(i === 2){newColor.push(this.state.clrs.green[this.getRandomNum(3)])}
-      if(i === 3){newColor.push(this.state.clrs.yellow[this.getRandomNum(3)])}
+      if(i === 0){newColor.push(blue[this.getRandomNum(3)])}
+      if(i === 1){newColor.push(red[this.getRandomNum(3)])}
+      if(i === 2){newColor.push(green[this.getRandomNum(3)])}
+      if(i === 3){newColor.push(yellow[this.getRandomNum(3)])}
     }
-    console.log(newColor);
     this.setState({active:newColor});
   }
 }
 
 class RainBow extends React.Component {
     render(){
-      console.log(this.props.activeColors);
+      const {activeColors} = this.props;
       return(
         <div id="rainbow">
-          <div className="row" style={{borderColor:this.props.activeColors[0]}}>
-           <div className="rowB " style={{borderColor:this.props.activeColors[1]}}>
-             <div className="rowC " style={{borderColor:this.props.activeColors[2]}}>
-              <div className="rowC " style={{borderColor:this.props.activeColors[3]}}>
+          <div className="row" style={{borderColor:activeColors[3]}}>
+           <div className="rowB " style={{borderColor:activeColors[2]}}>
+             <div className="rowC " style={{borderColor:activeColors[1]}}>
+              <div className="rowC " style={{borderColor:activeColors[0]}}>
                </div>
              </div>
            </div>
@@ -112,48 +111,8 @@ class RainBow extends React.Component {
     }
 }
 
-const SunBurst = () => <div className="sunburst">
-                        <div className="outer">
-                          <b></b>
-                          <b></b>
-                          <b></b>
-                          <b></b>
-                          <b></b>
-                          <b></b>
-                          <b></b>
-                          <b></b>
-                          <b></b>
-                          <b></b>
-                        </div>
-                       </div>
-
-class Shadows extends React.Component {
- render(){
-   return(
-     <div className='shadows'>
-       <div className='shadowLeft'></div>
-       <div className='shadowRight'></div>
-     </div>
-   )
- }
-}
-
-class Clouds extends React.Component {
-  render(){
-    return(
-      <div>
-        <div id='cloud' className="cloudLeft">
-        </div>
-        <div id='cloud' className="cloudRight">
-        </div>
-      </div>
-    )
-  }
-}
-
 class Diamond extends React.Component{
   render(){
-    console.log(this.props.sparkle());
     return (
       <div>
         <div className='diamonds-left'>
