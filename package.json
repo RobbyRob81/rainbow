@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+     "build" : "webpack index.js public/bundle.js"
   },
   "repository": {
     "type": "git",
