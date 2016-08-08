@@ -46,7 +46,6 @@ class App extends React.Component {
             />
             <div id="rainbow-fill"></div>
              <Diamond sparkle={this.getSparkle}/>
-
              <Cloud className="cloudLeft" />
                <div className="shadows">
                <div className='shadowLeft'></div>

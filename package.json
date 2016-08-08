@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
-     "build" : "webpack index.js public/bundle.js"
+     "build" : "webpack ./main.js bundle.js"
   },
   "repository": {
     "type": "git",

@@ -45,8 +45,8 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(1);
-	(function webpackMissingModule() { throw new Error("Cannot find module \"index.js\""); }());
-	(function webpackMissingModule() { throw new Error("Cannot find module \"public/bundle.js\""); }());
+	__webpack_require__(1);
+	module.exports = __webpack_require__(180);
 
 
 /***/ },
@@ -21905,6 +21905,12 @@
 	};
 
 	exports.default = styles;
+
+/***/ },
+/* 180 */
+/***/ function(module, exports) {
+
+	"use strict";
 
 /***/ }
 /******/ ]);
